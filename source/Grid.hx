@@ -14,11 +14,11 @@ class Grid extends FlxExtendedSprite {
 
     public static var maps = [
         // "assets/data/maps/debug.tmx",
-        "assets/data/maps/level5.tmx",
         "assets/data/maps/level1.tmx",
         "assets/data/maps/level2.tmx",
         "assets/data/maps/level3.tmx",
         "assets/data/maps/level4.tmx",
+        "assets/data/maps/level5.tmx",
     ];
 
     public var mapIndex = 0;
