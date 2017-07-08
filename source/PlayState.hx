@@ -8,6 +8,7 @@ class PlayState extends FlxState {
 	override public function create() : Void {
 		super.create();
 		FlxG.plugins.add(new FlxMouseControl());
+		FlxG.mouse.useSystemCursor = true;
 		var myGrid = new Grid();
 		add(myGrid);
 		add(myGrid.sprites);
