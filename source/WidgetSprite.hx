@@ -8,6 +8,7 @@ class WidgetSprite extends FlxExtendedSprite {
 
     @:isVar public var powered(get, set) = false;
 
+    public var blocksPower = false;
     public var givesPower = false;
     public var recievesPower = true;
     public var powerSource = false;
@@ -62,11 +63,26 @@ class WidgetSprite extends FlxExtendedSprite {
 
     override public function update(elapsed : Float) {
         super.update(elapsed);
+        var blockingSprite : WidgetSprite = null;
         if(recievesPower) {
+            for(sprite in grid.sprites) {
+                if(sprite.blocksPower) {
+                    if(FlxG.overlap(this,sprite)) {
+                        blockingSprite = sprite;
+                        break;
+                    }
+                }
+            }
             for(sprite in grid.sprites){
                 if(sprite.powered && sprite.givesPower) {
                     if(FlxG.overlap(this, sprite)) {
-                        powered = true;
+                        var doBlock = false;
+                        if(blockingSprite != null){
+                            doBlock = this.rect.intersection(sprite.rect).intersection(blockingSprite.rect).width != 0;
+                        }
+                        if(!doBlock) {
+                            powered = true;
+                        }
                         break;
                     }
                 }

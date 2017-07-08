@@ -14,7 +14,8 @@ class Grid extends FlxExtendedSprite {
     public var sprites = new FlxTypedGroup<WidgetSprite>();
 
     public static var maps = [
-        // "assets/data/maps/debug.tmx",
+        "assets/data/maps/debug.tmx",
+        "assets/data/maps/level6.tmx",
         "assets/data/maps/level1.tmx",
         "assets/data/maps/level2.tmx",
         "assets/data/maps/level3.tmx",

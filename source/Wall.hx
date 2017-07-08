@@ -6,6 +6,7 @@ class Wall extends WidgetSprite {
         super(X, Y, grid, canDrag);
         loadGraphic("assets/images/wall.png");
         recievesPower = false;
+        blocksPower = true;
     }
 
 }

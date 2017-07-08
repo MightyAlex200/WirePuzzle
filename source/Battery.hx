@@ -13,6 +13,7 @@ class Battery extends WidgetSprite {
         super(X, Y, grid, canDrag);
         loadFromPowered();
         givesPower = true;
+        blocksPower = true;
         checkTimer = new FlxTimer().start(0.5, timerFunction, 0);
     }
 
@@ -54,6 +55,7 @@ class Battery extends WidgetSprite {
     override public function update(elapsed : Float) {
         super.update(elapsed);
         powered = powered || activated;
+        blocksPower = !activated;
     }
 
 }
