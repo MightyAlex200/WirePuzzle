@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="WidgetSet" tilewidth="128" tileheight="128" tilecount="13" columns="0">
+<tileset name="WidgetSet" tilewidth="128" tileheight="128" tilecount="14" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="64" height="64" source="../images/light.png"/>
@@ -39,5 +39,8 @@
  </tile>
  <tile id="12">
   <image width="64" height="64" source="../images/battery.png"/>
+ </tile>
+ <tile id="13">
+  <image width="64" height="64" source="../images/heligrabber_tiled.png"/>
  </tile>
 </tileset>

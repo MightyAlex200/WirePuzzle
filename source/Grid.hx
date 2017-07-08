@@ -21,6 +21,7 @@ class Grid extends FlxExtendedSprite {
         "assets/data/maps/level4.tmx",
         "assets/data/maps/level5.tmx",
         "assets/data/maps/level6.tmx",
+        "assets/data/maps/level7.tmx",
     ];
 
     public var mapIndex = 0;
@@ -73,6 +74,7 @@ class Grid extends FlxExtendedSprite {
                 if(flipObject != null){
                     for(flip in flipObject) {
                         doFlip = flip.x == tileX && flip.y == tileY;
+                        if(doFlip) break;
                     }
                 }
                 var tileCanMove = tileY > 7;
@@ -110,6 +112,8 @@ class Grid extends FlxExtendedSprite {
                         sprites.add(new SmokeDetector(tileX, tileY, this, tileCanMove));
                     case 13:
                         sprites.add(new Battery(tileX, tileY, this, tileCanMove));
+                    case 14:
+                        sprites.add(new HeliGrabber(tileX, tileY, this, tileCanMove));
                     default:
                         trace('Unknown tile: $tile!');
                 }

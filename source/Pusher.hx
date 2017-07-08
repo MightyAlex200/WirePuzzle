@@ -4,7 +4,7 @@ import flixel.math.FlxRect;
 import flixel.FlxObject;
 import flixel.FlxG;
 
-class Pusher extends FlippableWidget {
+class Pusher extends FlippableWidget implements MovingWidget implements DisplacingWidget {
 
     public var defaultX(default, null) : Float;
     public var defaultY(default, null) : Float;
@@ -52,6 +52,8 @@ class Pusher extends FlippableWidget {
                     }
                 }
             }
+            var rect = rect;
+            rect.y += velocity.y;
             if(bounds.intersection(rect).width == 0) {
                 stop();
             }
