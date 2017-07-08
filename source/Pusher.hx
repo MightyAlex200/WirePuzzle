@@ -15,6 +15,8 @@ class Pusher extends FlippableWidget {
 
     override public function new(?X : Float, ?Y : Float, grid : Grid, ?canDrag : Bool) {
         super(X, Y, grid, canDrag);
+        defaultX = x;
+        defaultY = y;
         loadGraphic("assets/images/pusher.png");
         powerSource = true;
     }
