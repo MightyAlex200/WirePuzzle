@@ -5,6 +5,7 @@ import flixel.addons.display.FlxExtendedSprite;
 import flixel.addons.editors.tiled.TiledLayer;
 import flixel.addons.editors.tiled.TiledMap;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import haxe.Json;
 
 class Grid extends FlxExtendedSprite {
 
@@ -62,10 +63,17 @@ class Grid extends FlxExtendedSprite {
     private function loadSpritesFromLayer(layer : TiledLayer) {
         if(Std.is(layer, TiledTileLayer)) {
             var layer = cast(layer, TiledTileLayer);
+            var flipObject : Array<{var x : Int; var y : Int;}> = try Json.parse(layer.properties.get("Flip")) catch(e : Any) null;
             var tileNumber = 0;
             for(tile in layer.tileArray) {
                 var tileX = tileNumber%layer.width;
                 var tileY = Math.floor(tileNumber/layer.width);
+                var doFlip = false;
+                if(flipObject != null){
+                    for(flip in flipObject) {
+                        doFlip = flip.x == tileX && flip.y == tileY;
+                    }
+                }
                 var tileCanMove = tileY > 7;
                 switch(tile) {
                     case 0:
@@ -84,11 +92,17 @@ class Grid extends FlxExtendedSprite {
                     case 7:
                         sprites.add(new PowerBox(tileX, tileY, this, tileCanMove));
                     case 8:
-                        sprites.add(new Cannon(tileX, tileY, this, tileCanMove));
+                        var ns = new Cannon(tileX, tileY, this, tileCanMove);
+                        sprites.add(ns);
+                        if(doFlip) ns.flip();
                     case 9:
-                        sprites.add(new Pusher(tileX, tileY, this, tileCanMove));
+                        var ns = new Pusher(tileX, tileY, this, tileCanMove);
+                        sprites.add(ns);
+                        if(doFlip) ns.flip();
                     case 10:
-                        sprites.add(new Teapot(tileX, tileY, this, tileCanMove));
+                        var ns = new Teapot(tileX, tileY, this, tileCanMove);
+                        sprites.add(ns);
+                        if(doFlip) ns.flip();
                     case 11:
                         sprites.add(new Burner(tileX, tileY, this, tileCanMove));
                     case 12:

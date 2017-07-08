@@ -13,6 +13,10 @@ class FlippableWidget extends WidgetSprite {
     public var direction = FlxObject.LEFT;
 
     override private function mouseClickCallback(obj : FlxExtendedSprite, x : Float, y : Float) {
+        flip();
+    }
+
+    public function flip() {
         if(canFlip) {
             direction = direction == FlxObject.LEFT ? FlxObject.RIGHT : FlxObject.LEFT;
             flipX = direction != FlxObject.LEFT;

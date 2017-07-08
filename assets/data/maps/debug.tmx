@@ -34,12 +34,15 @@
 </data>
  </layer>
  <layer name="Widgets" width="8" height="12">
+  <properties>
+   <property name="Flip" value="[{&quot;x&quot;: 3, &quot;y&quot; : 4}]"/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
+0,0,9,0,0,0,0,0,
+0,0,0,9,0,0,0,0,
 0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,
