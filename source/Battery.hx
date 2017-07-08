@@ -50,6 +50,7 @@ class Battery extends WidgetSprite {
         activated = false;
         charged = false;
         powered = false;
+        checkTimer.reset();
     }
 
     override public function update(elapsed : Float) {
