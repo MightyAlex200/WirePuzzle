@@ -14,10 +14,11 @@ class Grid extends FlxExtendedSprite {
 
     public static var maps = [
         // "assets/data/maps/debug.tmx",
+        "assets/data/maps/level5.tmx",
         "assets/data/maps/level1.tmx",
         "assets/data/maps/level2.tmx",
         "assets/data/maps/level3.tmx",
-        "assets/data/maps/level4.tmx"
+        "assets/data/maps/level4.tmx",
     ];
 
     public var mapIndex = 0;
@@ -92,6 +93,8 @@ class Grid extends FlxExtendedSprite {
                         sprites.add(new Burner(tileX, tileY, this, tileCanMove));
                     case 12:
                         sprites.add(new SmokeDetector(tileX, tileY, this, tileCanMove));
+                    case 13:
+                        sprites.add(new Battery(tileX, tileY, this, tileCanMove));
                     default:
                         trace('Unknown tile: $tile!');
                 }
