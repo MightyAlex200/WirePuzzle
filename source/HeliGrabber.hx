@@ -1,6 +1,5 @@
 package;
 
-import flixel.util.FlxTimer;
 import flixel.math.FlxRect;
 import flixel.FlxG;
 
@@ -42,6 +41,7 @@ class HeliGrabber extends WidgetSprite implements MovingWidget {
                     if(sprite == this) continue;
                     if(FlxG.collide(this, sprite)) {
                         displacedObject = sprite;
+                        gripping = true;
                         displacedObjectDefaultX = displacedObject.x;
                         displacedObjectDefaultY = displacedObject.y;
                         goingBackwards = true;
@@ -81,6 +81,9 @@ class HeliGrabber extends WidgetSprite implements MovingWidget {
         powered = !enabled;
         if(enabled) {
             cleanUp();
+        } else {
+            defaultX = x;
+            defaultY = y;
         }
     }
 
@@ -102,6 +105,7 @@ class HeliGrabber extends WidgetSprite implements MovingWidget {
         }
         stop();
         displacedObject = null;
+        gripping = false;
         goingBackwards = false;
     }
 
