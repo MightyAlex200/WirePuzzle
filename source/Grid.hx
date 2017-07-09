@@ -22,6 +22,7 @@ class Grid extends FlxExtendedSprite {
         "assets/data/maps/level5.tmx",
         "assets/data/maps/level6.tmx",
         "assets/data/maps/level7.tmx",
+        "assets/data/maps/level8.tmx",
     ];
 
     public var mapIndex = 0;
