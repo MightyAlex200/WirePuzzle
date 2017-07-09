@@ -28,12 +28,17 @@ class Teapot extends FlippableWidget {
     }
 
     private function createSteam(timer : FlxTimer) {
+        if(!alive) return;
         var burner = checkForBurner();
         if(burner != null) {
             if(burner.powered) {
                 new Steam(x+(width * (direction == FlxObject.LEFT ? -1 : 1)), y, grid, false);
             }
         }
+    }
+
+    override public function mouseDragCallback(enabled : Bool) {
+        steamTimer.reset(0.5);
     }
 
 }
