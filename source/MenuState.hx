@@ -32,6 +32,7 @@ class MenuState extends FlxState {
 
     private function createNewGraphicButton(graphic : String, ?callback : Void->Void, lastAsset : FlxObject) {
         var newButton = createNewButton("", callback, lastAsset);
+        newButton.x = FlxG.width/2-newButton.width/2;
         newButton.loadGraphic(graphic);
         return newButton;
     }
